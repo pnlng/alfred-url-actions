@@ -1,6 +1,6 @@
 POPCLIP = URLtoAlfred
-POPCLIP_EXT = $(POPCLIP).ext
-POPCLIP_EXTZ = $(POPCLIP).extz
+POPCLIP_EXT = $(POPCLIP).popclipext
+POPCLIP_EXTZ = $(POPCLIP).popclipextz
 
 popclip:
 	cp -r $(POPCLIP) $(POPCLIP_EXT)
