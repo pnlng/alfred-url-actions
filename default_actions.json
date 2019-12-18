@@ -1,0 +1,28 @@
+[
+  {
+    "action_title": "Copy as Markdown link",
+    "output": "[{title}]({url})"
+  },
+  {
+    "action_title": "Copy as Markdown list item",
+    "output": "- [{title}]({url})"
+  },
+  {
+    "action_title": "Add to OmniFocus",
+    "action_subtitle": "",
+    "output": "omnifocus:///add?name={title}&note={url}",
+    "encode": true
+  },
+  {
+    "action_title": "Copy Title",
+    "output": "{title}"
+  },
+  {
+    "action_title": "Copy URL",
+    "output": "{url}"
+  },
+  {
+    "action_title": "Copy HTML link",
+    "output": "<a href=\"{url}\">{title}</a>"
+  }
+]

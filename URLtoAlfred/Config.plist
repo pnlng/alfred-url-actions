@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Actions</key>
+	<array>
+		<dict>
+			<key>AppleScript File</key>
+			<string>alfred.applescript</string>
+			<key>Image File</key>
+			<string>url.png</string>
+			<key>Regular Expression</key>
+			<string>(?s)^[^\n\r]{1,300}$</string>
+			<key>Title</key>
+			<string>URL to Alfred</string>
+		</dict>
+	</array>
+	<key>Apps</key>
+	<array>
+		<dict>
+			<key>Bundle Identifier</key>
+			<string>com.runningwithcrayons.alfred</string>
+			<key>Check Installed</key>
+			<true/>
+			<key>Link</key>
+			<string>http://alfredapp.com/</string>
+			<key>Name</key>
+			<string>Alfred</string>
+		</dict>
+	</array>
+	<key>Extension Description</key>
+	<string>Trigger Alfred with URL selected and page title fetched. To be used with Alfred workflow URL Actions. </string>
+	<key>Extension Identifier</key>
+	<string>com.pnlng.urltoalfred</string>
+	<key>Extension Name</key>
+	<string>URL to Alfred</string>
+</dict>
+</plist>
