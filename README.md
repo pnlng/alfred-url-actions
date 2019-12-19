@@ -16,8 +16,8 @@ An optional [PopClip](https://pilotmoon.com/popclip/) extension is also availabl
 
 ## Download
 
-- [Alfred Workflow](/pnlng/alfred-url-actions/releases/latest/download/URL.Actions.alfredworkflow)
-- [(Optional) PopClip Extension](/pnlng/alfred-url-actions/releases/latest/download/URLtoAlfred.popclipextz)
+- [Alfred Workflow](https://www.github.com/pnlng/alfred-url-actions/releases/latest/download/URL.Actions.alfredworkflow)
+- [(Optional) PopClip Extension](https://www.github.com/pnlng/alfred-url-actions/releases/latest/download/URLtoAlfred.popclipextz)
 
 
 <details>
