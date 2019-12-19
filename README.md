@@ -52,9 +52,6 @@ OmniFocus quick entry:
 
 ![](screenshots/omnifocus.png)
 
-Optional PopClip extension: 
-
-![](screenshots/popclip.png)
 
 ## Why?
 
