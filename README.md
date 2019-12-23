@@ -17,7 +17,7 @@ An optional [PopClip](https://pilotmoon.com/popclip/) extension is also availabl
 ## Download
 
 - [Alfred Workflow](https://www.github.com/pnlng/alfred-url-actions/releases/latest/download/URL.Actions.alfredworkflow)
-- [(Optional) PopClip Extension](https://www.github.com/pnlng/alfred-url-actions/releases/latest/download/URLtoAlfred.popclipextz)
+- (Optional) [PopClip Extension](https://www.github.com/pnlng/alfred-url-actions/releases/latest/download/URLtoAlfred.popclipextz)
 
 
 <details>
@@ -65,7 +65,7 @@ Select the desired URL (<kbd>⌘L</kbd> to get the URL of the current tab in a b
 
 Alternatively, if you use [PopClip](https://pilotmoon.com/popclip/), you trigger Alfred through the PopClip extension. 
 
-Note: The extension triggers Alfred 4 by default. If you use other versions of Alfred, you would need to modify `alfred.applescript` and `Bundle Identifier` in `Config.plist`, and [package](https://github.com/pilotmoon/PopClip-Extensions#anatomy-of-a-popclip-extension) the extension yourself. 
+- Note: The extension triggers Alfred 4 by default. If you use other versions of Alfred, you would need to modify `alfred.applescript` and `Bundle Identifier` in `Config.plist`, and [package](https://github.com/pilotmoon/PopClip-Extensions#anatomy-of-a-popclip-extension) the extension yourself. 
 
 If you're in a non-browser app (as defined by the `BROWSERS` variable discussed in the [Variables](#Variables) section below), the workflow will supply an empty string in place of the title of the current webpage. 
 
