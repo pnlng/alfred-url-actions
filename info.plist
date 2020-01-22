@@ -416,9 +416,6 @@ Variables:
 - `CLEAN_AMAZON` - Default `true`
   - The workflow removes tracking tokens from Amazon URLs if this variable is set to `true`. 
   - To disable the feature, set the variable to `false`. 
-- `BROWSERS` - Default `{"Firefox", "Safari", "Google Chrome", "Opera"}`
-  - This helps the workflow determine whether to get the title of the window. If the frontmost app is not in the list, then the workflow will supply an empty string. 
-  - Add your browser to this list if you use something else. 
 - `CUSTOM_ACTIONS` - Default unspecified. 
   - You can supply custom actions that override the default actions. See GitHub repo for details. 
 
@@ -499,15 +496,13 @@ GitHub repo: https://github.com/pnlng/url-actions</string>
 	</dict>
 	<key>variables</key>
 	<dict>
-		<key>BROWSERS</key>
-		<string>{"Firefox", "Safari", "Google Chrome", "Opera", "Amazon"}</string>
 		<key>CLEAN_AMAZON</key>
 		<string>true</string>
 	</dict>
 	<key>variablesdontexport</key>
 	<array/>
 	<key>version</key>
-	<string>1.1.2</string>
+	<string>1.1.3</string>
 	<key>webaddress</key>
 	<string>https://github.com/pnlng/alfred-url-actions</string>
 </dict>

@@ -78,9 +78,6 @@ See [here](https://www.alfredapp.com/help/workflows/advanced/variables/#environm
 - `CLEAN_AMAZON` - Default `true`
   - The workflow removes tracking tokens from Amazon URLs if this variable is set to `true`. 
   - To disable the feature, set the variable to `false`. 
-- `BROWSERS` - Default `{"Firefox", "Safari", "Google Chrome", "Opera"}`
-  - This helps the workflow determine whether to get the title of the window. If the frontmost app is not in the list, then the workflow will supply an empty string. 
-  - Add your browser to this list if you use something else. 
 - `CUSTOM_ACTIONS` - Default unspecified. 
   - You can supply custom actions that override the default actions. 
 
@@ -145,6 +142,8 @@ This workflow is inspired by these articles and projects.
 
 - [Clean Amazon links with TextExpander](https://leancrew.com/all-this/2015/06/clean-amazon-links-with-textexpander/) by Dr. Drang
 - [Mail to OmniFocus - AppleScript](https://www.mnott.de/mail-to-omnifocus-applescript/) by Matthias Nott
+- This [gist](https://gist.github.com/vitorgalvao/5392178) by vitorgalvao
+  -  AppleScript and JavaScript for Automation to get frontmost tab's url and title of various browsers
 - [Workflow/environment variables in Alfred](https://www.deanishe.net/post/2018/10/workflow/environment-variables-in-alfred/) by deanishe
 - The [Copy URL](https://github.com/fallroot/copy-url-for-alfred) workflow by fallroot
 

@@ -8,13 +8,13 @@ import urllib
 import json
 from workflow import Workflow
 
-# Applescript stuff from Dr. Drang: https://leancrew.com/all-this/2013/03/combining-python-and-applescripturl/
+# Applescript stuff from Dr. Drang: https://leancrew.com/all-this/2013/03/combining-python-and-applescript/
 
 
 def asrun(ascript):
     "Run the given AppleScript and return the standard output and error."
 
-    osa = subprocess.Popen(['osascript', '-'],
+    osa = subprocess.Popen(['osascript', '-l', 'JavaScript', '-'],
                            stdin=subprocess.PIPE,
                            stdout=subprocess.PIPE)
     return osa.communicate(ascript)[0]
@@ -29,15 +29,10 @@ def asquote(astr):
 
 def get_title():
     # only get the window title if frontmost app is in the list of browsers specified
-    browsers = os.environ['BROWSERS']
     ascript = '''
-    tell application "System Events" to set frontApp to name of first process whose frontmost is true
-    if frontApp is in {0} then
-        tell application frontApp to set tabTitle to name of front window
-    else
-        set tabTitle to ""
-    end if
-    return tabTitle'''.format(asquote(browsers))
+    const frontmost_app_name = Application('System Events').applicationProcesses.where({ frontmost: true }).name()[0]
+    const frontmost_app = Application(frontmost_app_name)
+    frontmost_app.windows[0].name()'''
     return asrun(ascript).strip()
 
 
