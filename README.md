@@ -46,10 +46,9 @@ An optional [PopClip](https://pilotmoon.com/popclip/) extension is also availabl
 
 macOS notification: 
 
-<center>
-<img src="screenshots/notification.png" width="280">
-</center>
-
+<p align="center">
+<img src="screenshots/notification.png" width="300">
+</p>
 
 ## Why?
 
