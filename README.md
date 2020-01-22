@@ -40,17 +40,15 @@ An optional [PopClip](https://pilotmoon.com/popclip/) extension is also availabl
 
 ## Screenshots
 
-Alfred: 
-
-![](screenshots/alfred.png)
+|Alfred | OmniFocus quick entry |
+| --- | --- |
+| ![](screenshots/alfred.png) | ![](screenshots/omnifocus.png)|
 
 macOS notification: 
 
-![](screenshots/notification.png)
-
-OmniFocus quick entry: 
-
-![](screenshots/omnifocus.png)
+<center>
+<img src="screenshots/notification.png" width="280">
+</center>
 
 
 ## Why?
