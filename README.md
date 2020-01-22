@@ -44,10 +44,11 @@ An optional [PopClip](https://pilotmoon.com/popclip/) extension is also availabl
 | --- | --- |
 | ![](screenshots/alfred.png) | ![](screenshots/omnifocus.png)|
 
-macOS notification: 
 
 <p align="center">
-<img src="screenshots/notification.png" width="300">
+macOS notification</p>
+<p align="center">
+<img src="screenshots/notification.png" width="340">
 </p>
 
 ## Why?
