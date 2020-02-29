@@ -34,6 +34,8 @@ An optional [PopClip](https://pilotmoon.com/popclip/) extension is also availabl
     - [Copying URLs](#copying-urls)
     - [Adding to OmniFocus](#adding-to-omnifocus)
     - [Browser Specific](#browser-specific)
+  - [Browser Support](#browser-support)
+  - [Known Issues](#known-issues)
   - [Acknowledgements](#acknowledgements)
     </details>
 
@@ -132,6 +134,19 @@ There are a few browser specific tools that can send the frontmost web page and 
 - [Firefox extension](https://addons.mozilla.org/en-US/firefox/addon/addtoomnifocus2/)
 - [Script for Safari](https://github.com/jessesquires/safari-tabs-to-omnifocus)
 - [Chrome extension](https://chrome.google.com/webstore/detail/send-to-omnifocus/ohdhaodomnlifoigpfcbjpcegdbefnen)
+
+## Browser Support
+
+- Firefox (including Firefox Developer Edition)
+- Chrome
+- Safari
+- Brave
+- Opera
+
+## Known Issues
+
+- If both Firefox and Firefox Developer Edition are running, the workflow may not get the correct title.
+  - Both processes are named 'firefox', and AppleScript cannot distinguish the two by name.
 
 ## Acknowledgements
 

@@ -27,13 +27,22 @@ def asquote(astr):
     return '"{}"'.format(astr)
 
 
-def get_title():
-    # only get the window title if frontmost app is in the list of browsers specified
+def get_app_name():
     ascript = '''
-    const frontmost_app_name = Application('System Events').applicationProcesses.where({ frontmost: true }).name()[0]
-    const frontmost_app = Application(frontmost_app_name)
-    frontmost_app.windows[0].name()'''
+    Application('System Events').applicationProcesses.where(
+        { frontmost: true }).name()[0]
+    '''
     return asrun(ascript).strip()
+
+
+def get_title(app_name):
+    ascript = '''
+    const frontmost_app = Application('{}')
+    frontmost_app.windows[0].name() '''.format(app_name)
+    title = asrun(ascript).strip()
+    if app_name == 'firefox':
+        return re.sub(' - Firefox Developer Edition$', '', title)
+    return title
 
 
 def clean_url(url):
@@ -41,7 +50,8 @@ def clean_url(url):
 
 
 def main(wf):
-    title = wf.decode(get_title())
+    app_name = get_app_name()
+    title = wf.decode(get_title(app_name))
     url = wf.decode(wf.args[0]) if len(wf.args) else None
     if os.environ.get('CLEAN_AMAZON') == 'true':
         url = clean_url(url)

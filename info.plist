@@ -414,10 +414,13 @@ python actions.py $query</string>
 Variables:
 
 - `CLEAN_AMAZON` - Default `true`
-  - The workflow removes tracking tokens from Amazon URLs if this variable is set to `true`. 
-  - To disable the feature, set the variable to `false`. 
-- `CUSTOM_ACTIONS` - Default unspecified. 
-  - You can supply custom actions that override the default actions. See GitHub repo for details. 
+  - The workflow removes tracking tokens from Amazon URLs if this variable is set to `true`.
+  - To disable the feature, set the variable to `false`.
+- `UPDATE_FREQUENCY` - Default 7
+  - Set once how many days the workflow should check for updates
+  - Updates done through [OneUpdater](https://github.com/vitorgalvao/alfred-workflows/tree/master/OneUpdater)
+- `CUSTOM_ACTIONS` - Default unspecified.
+  - You can supply custom actions that override the default actions.
 
 GitHub repo: https://github.com/pnlng/url-actions</string>
 	<key>uidata</key>
@@ -498,11 +501,13 @@ GitHub repo: https://github.com/pnlng/url-actions</string>
 	<dict>
 		<key>CLEAN_AMAZON</key>
 		<string>true</string>
+		<key>UPDATE_FREQUENCY</key>
+		<string>7</string>
 	</dict>
 	<key>variablesdontexport</key>
 	<array/>
 	<key>version</key>
-	<string>1.1.3</string>
+	<string>1.1.4</string>
 	<key>webaddress</key>
 	<string>https://github.com/pnlng/alfred-url-actions</string>
 </dict>
