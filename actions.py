@@ -27,21 +27,18 @@ def asquote(astr):
     return '"{}"'.format(astr)
 
 
-def get_app_name():
+def get_app_id():
     ascript = '''
     Application('System Events').applicationProcesses.where(
-        { frontmost: true }).name()[0]
+        { frontmost: true }).bundleIdentifier()[0]
     '''
     return asrun(ascript).strip()
 
 
-def get_title(app_name):
+def get_title(app_id):
     ascript = '''
-    const frontmost_app = Application('{}')
-    frontmost_app.windows[0].name() '''.format(app_name)
+    Application('{}').windows[0].name() '''.format(app_id)
     title = asrun(ascript).strip()
-    if app_name == 'firefox':
-        return re.sub(' - Firefox Developer Edition$', '', title)
     return title
 
 
@@ -50,27 +47,44 @@ def clean_url(url):
 
 
 def main(wf):
-    app_name = get_app_name()
-    title = wf.decode(get_title(app_name))
+    app_id = get_app_id()
+    title = wf.decode(get_title(app_id))
     url = wf.decode(wf.args[0]) if len(wf.args) else None
-    if os.environ.get('CLEAN_AMAZON') == 'true':
+    clean_amazon = os.environ.get('CLEAN_AMAZON')
+    if clean_amazon and clean_amazon.lower() == 'true':
         url = clean_url(url)
+    custom_actions_file = os.environ.get('CUSTOM_ACTIONS_FILE', '')
     custom_actions = os.environ.get('CUSTOM_ACTIONS', '')
-    if custom_actions:
-        actions = json.loads(custom_actions)
+    if custom_actions_file:
+        custom_file_path = wf.datafile(custom_actions_file)
+        if os.path.isfile(custom_file_path):
+            with open(custom_file_path, "r") as f:
+                try:
+                    actions = json.load(f)
+                except ValueError:
+                    raise ValueError(
+                        '"{}" is malformed.'.format(custom_actions_file))
+        else:
+            raise ValueError(
+                '"{}" not in workflow data directory. Run "urlact" to show the folder.'.format(custom_actions_file))
+    elif custom_actions:
+        try:
+            actions = json.loads(custom_actions)
+        except ValueError:
+            raise ValueError('The value of "CUSTOM_ACTIONS" is malformed.')
     else:
         config = wf.workflowfile('default_actions.json')
         with open(config) as f:
             actions = json.load(f)
     for action in actions:
-        # quote title if url is to be opened
+        # Quote title if url is to be opened
         if action.get('encode', False):
             formatted_title = urllib.quote(title.encode('utf-8'))
         else:
             formatted_title = title
         formatted = action['output'].format(
             title=formatted_title, url=url)
-        # use the formatted string as subtitle if it's not specified in the json
+        # Use the formatted string as subtitle if it's not specified in the json
         subtitle = action.get('action_subtitle', formatted)
         wf.add_item(title=action['action_title'],
                     subtitle=subtitle,
