@@ -29,7 +29,7 @@ An optional [PopClip](https://pilotmoon.com/popclip/) extension is also availabl
   - [Usage](#usage)
   - [Configuration](#configuration)
     - [Variables](#variables)
-      - [Custom Actions](#custom-actions)
+    - [Custom Actions](#custom-actions)
   - [Alternatives](#alternatives)
     - [Copying URLs](#copying-urls)
     - [Adding to OmniFocus](#adding-to-omnifocus)
@@ -82,7 +82,7 @@ See [here](https://www.alfredapp.com/help/workflows/advanced/variables/#environm
   - A string in JSON format supplying custom actions that override the default actions.
   - If both `CUSTOM_ACTIONS` and `CUSTOM_ACTIONS_FILE` are defined, only the `CUSTOM_ACTIONS_FILE` will be used. 
 
-#### Custom Actions
+### Custom Actions
 
 You can supply custom actions that override the default actions in one of the following ways.
 
