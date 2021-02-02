@@ -141,7 +141,7 @@ There are a few browser specific tools that can send the frontmost web page and 
 
 ## Browser Support
 
-- Firefox (including Firefox Developer Edition)
+- Firefox
 - Chrome
 - Safari
 - Brave
