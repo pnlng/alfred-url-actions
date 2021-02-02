@@ -35,7 +35,6 @@ An optional [PopClip](https://pilotmoon.com/popclip/) extension is also availabl
     - [Adding to OmniFocus](#adding-to-omnifocus)
     - [Browser Specific](#browser-specific)
   - [Browser Support](#browser-support)
-  - [Known Issues](#known-issues)
   - [Acknowledgements](#acknowledgements)
     </details>
 
@@ -71,22 +70,32 @@ Alternatively, if you use [PopClip](https://pilotmoon.com/popclip/), you trigger
 
 See [here](https://www.alfredapp.com/help/workflows/advanced/variables/#environment) for a quick tutorial on how to configure variables in Alfred.
 
-- `CLEAN_AMAZON` - Default `true`
+- `CLEAN_AMAZON` - Default: `true`
   - The workflow removes tracking tokens from Amazon URLs if this variable is set to `true`.
   - To disable the feature, set the variable to `false`.
-- `UPDATE_FREQUENCY` - Default 7
+- `UPDATE_FREQUENCY` - Default: 7
   - Set once how many days the workflow should check for updates
   - Updates done through [OneUpdater](https://github.com/vitorgalvao/alfred-workflows/tree/master/OneUpdater)
-- `CUSTOM_ACTIONS` - Default unspecified.
-  - You can supply custom actions that override the default actions.
+- `CUSTOM_ACTIONS_FILE` - Default: null
+  - The name of a JSON file in the workflow data directory supplying custom actions that override the default actions. 
+- `CUSTOM_ACTIONS` - Default: null
+  - A string in JSON format supplying custom actions that override the default actions.
+  - If both `CUSTOM_ACTIONS` and `CUSTOM_ACTIONS_FILE` are defined, only the `CUSTOM_ACTIONS_FILE` will be used. 
 
 #### Custom Actions
 
-For a template, see `default_actions.json`, accessible via the keyword `urlact` in Alfred. _But please do not edit the `default_actions.json` file, as user changes will be overridden when the workflow is updated._
+You can supply custom actions that override the default actions in one of the following ways.
+
+1. Put a JSON file in the workflow data directory (accessible via the keyword `urlact`). Let the value of `CUSTOM_ACTIONS_FILE` be the name of the file. 
+2. Let the value of `CUSTOM_ACTIONS` be a JSON string. 
+
+For a template, see [`default_actions.json`](https://github.com/pnlng/alfred-url-actions/blob/master/default_actions.json).
+
+_Please do **not** directly edit the `default_actions.json` file in the workflow directory, as user changes will be overridden when the workflow is updated._
 
 Example:
 
-```
+```json
 [
   {
     "action_title": "Copy as Markdown link",
@@ -129,6 +138,8 @@ If you use only Safari or Chrome, and do not need to copy links in Markdown or c
 
 ### Browser Specific
 
+For maximal scriptability in Firefox, checkout deanishe's [Firefox Assistant for Alfred](https://github.com/deanishe/alfred-firefox/).
+
 There are a few browser specific tools that can send the frontmost web page and URL to OmniFocus.
 
 - [Firefox extension](https://addons.mozilla.org/en-US/firefox/addon/addtoomnifocus2/)
@@ -142,11 +153,8 @@ There are a few browser specific tools that can send the frontmost web page and 
 - Safari
 - Brave
 - Opera
-
-## Known Issues
-
-- If both Firefox and Firefox Developer Edition are running, the workflow may not get the correct title.
-  - Both processes are named 'firefox', and AppleScript cannot distinguish the two by name.
+- Vivaldi
+... probably any browser, really.
 
 ## Acknowledgements
 
