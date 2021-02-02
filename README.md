@@ -19,24 +19,6 @@ An optional [PopClip](https://pilotmoon.com/popclip/) extension is also availabl
 - [Alfred Workflow](https://www.github.com/pnlng/alfred-url-actions/releases/latest/download/URL.Actions.alfredworkflow)
 - (Optional) [PopClip Extension](https://github.com/pnlng/alfred-url-actions/releases/download/v1.1.4/URLtoAlfred.popclipextz)
 
-## Contents
-- [URL Actions](#url-actions)
-  - [Download](#download)
-  - [Contents](#contents)
-  - [Screenshots](#screenshots)
-  - [Why?](#why)
-  - [Usage](#usage)
-  - [Configuration](#configuration)
-    - [Variables](#variables)
-    - [Custom Actions](#custom-actions)
-  - [Alternatives](#alternatives)
-    - [Copying URLs](#copying-urls)
-    - [Adding to OmniFocus](#adding-to-omnifocus)
-    - [Browser Specific](#browser-specific)
-  - [Browser Support](#browser-support)
-  - [Acknowledgements](#acknowledgements)
-    </details>
-
 ## Screenshots
 
 | Alfred                      | OmniFocus quick entry          |
@@ -49,11 +31,23 @@ macOS notification</p>
 <img src="screenshots/notification.png" width="340">
 </p>
 
-## Why?
+## Contents
+- [URL Actions](#url-actions)
+  - [Download](#download)
+  - [Screenshots](#screenshots)
+  - [Contents](#contents)
+  - [Usage](#usage)
+  - [Configuration](#configuration)
+    - [Variables](#variables)
+    - [Custom Actions](#custom-actions)
+  - [Alternatives](#alternatives)
+    - [Copying URLs](#copying-urls)
+    - [Adding to OmniFocus](#adding-to-omnifocus)
+    - [Browser Specific](#browser-specific)
+  - [Browser Support](#browser-support)
+  - [Acknowledgements](#acknowledgements)
+    </details>
 
-I'd like to be able to select the URL in the address bar of my browser and save the URL together with the page title somewhere else -- without having to go back and forth between the browser and another app to copy and paste the two items separately.
-
-See the [Alternatives](#alternatives) section for other implementations.
 
 ## Usage
 
