@@ -8,6 +8,19 @@
 	<string>Mine</string>
 	<key>connections</key>
 	<dict>
+		<key>4E42958F-AB37-4884-A9EF-0E3612CD935F</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>5ECD3A62-C7D3-44A3-B448-9FA80977E138</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>5ECD3A62-C7D3-44A3-B448-9FA80977E138</key>
 		<array>
 			<dict>
@@ -20,6 +33,29 @@
 				<key>vitoclose</key>
 				<false/>
 			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>B07191C2-BB02-42AD-89E3-0D9EB5237E38</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>6F397E7D-58CB-4B78-A32E-E1FFABA54B87</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>Remove URL query params</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>6F397E7D-58CB-4B78-A32E-E1FFABA54B87</key>
+		<array>
 			<dict>
 				<key>destinationuid</key>
 				<string>B07191C2-BB02-42AD-89E3-0D9EB5237E38</string>
@@ -75,7 +111,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>5ECD3A62-C7D3-44A3-B448-9FA80977E138</string>
+				<string>4E42958F-AB37-4884-A9EF-0E3612CD935F</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -89,6 +125,19 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>8F5B8CD0-BF03-400B-AAB1-90CB4A5B069D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>ECD1399A-7BCC-47BE-B4DD-AC5785660A84</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>5ECD3A62-C7D3-44A3-B448-9FA80977E138</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -120,7 +169,7 @@
 readonly remote_info_plist='https://raw.githubusercontent.com/pnlng/alfred-url-actions/master/info.plist'
 readonly workflow_url='https://github.com/pnlng/alfred-url-actions/releases/latest/download/URL.Actions.alfredworkflow'
 readonly download_type='direct'
-readonly frequency_check='30'
+readonly frequency_check="$UPDATE_FREQUENCY"
 
 # FROM HERE ON, CODE SHOULD BE LEFT UNTOUCHED!
 function abort {
@@ -227,33 +276,22 @@ echo -n $query</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>action</key>
-				<integer>0</integer>
 				<key>argument</key>
-				<integer>1</integer>
-				<key>focusedappvariable</key>
+				<string>{query}</string>
+				<key>passthroughargument</key>
 				<false/>
-				<key>focusedappvariablename</key>
-				<string></string>
-				<key>hotkey</key>
-				<integer>8</integer>
-				<key>hotmod</key>
-				<integer>393216</integer>
-				<key>hotstring</key>
-				<string>C</string>
-				<key>leftcursor</key>
-				<false/>
-				<key>modsmode</key>
-				<integer>0</integer>
-				<key>relatedAppsMode</key>
-				<integer>0</integer>
+				<key>variables</key>
+				<dict>
+					<key>raw_url</key>
+					<string>{query}</string>
+				</dict>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.trigger.hotkey</string>
+			<string>alfred.workflow.utility.argument</string>
 			<key>uid</key>
-			<string>C186D22C-70AF-49B1-BF8A-EDAEA23DA4A2</string>
+			<string>4E42958F-AB37-4884-A9EF-0E3612CD935F</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -308,19 +346,33 @@ python actions.py $query</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>autopaste</key>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>1</integer>
+				<key>focusedappvariable</key>
 				<false/>
-				<key>clipboardtext</key>
-				<string>{query}</string>
-				<key>transient</key>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>8</integer>
+				<key>hotmod</key>
+				<integer>393216</integer>
+				<key>hotstring</key>
+				<string>C</string>
+				<key>leftcursor</key>
 				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.output.clipboard</string>
+			<string>alfred.workflow.trigger.hotkey</string>
 			<key>uid</key>
-			<string>8358BFA1-492D-4C8B-9993-0BDA22566D52</string>
+			<string>C186D22C-70AF-49B1-BF8A-EDAEA23DA4A2</string>
 			<key>version</key>
-			<integer>3</integer>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -342,6 +394,25 @@ python actions.py $query</string>
 			<string>82CABD23-2C5E-41E8-8615-11CD3B792A8B</string>
 			<key>version</key>
 			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>8358BFA1-492D-4C8B-9993-0BDA22566D52</string>
+			<key>version</key>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -376,13 +447,44 @@ python actions.py $query</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>path</key>
-				<string>actions.py</string>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string></string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string>remove_query_params.py</string>
+				<key>type</key>
+				<integer>8</integer>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.action.revealfile</string>
+			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>8F5B8CD0-BF03-400B-AAB1-90CB4A5B069D</string>
+			<string>6F397E7D-58CB-4B78-A32E-E1FFABA54B87</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>acceptsfiles</key>
+				<false/>
+				<key>acceptsmulti</key>
+				<integer>0</integer>
+				<key>acceptstext</key>
+				<false/>
+				<key>acceptsurls</key>
+				<true/>
+				<key>name</key>
+				<string>URL Actions</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.universalaction</string>
+			<key>uid</key>
+			<string>ECD1399A-7BCC-47BE-B4DD-AC5785660A84</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -396,7 +498,7 @@ python actions.py $query</string>
 				<key>subtext</key>
 				<string></string>
 				<key>text</key>
-				<string>Show workflow folder</string>
+				<string>Show workflow data folder</string>
 				<key>withspace</key>
 				<false/>
 			</dict>
@@ -407,30 +509,62 @@ python actions.py $query</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>path</key>
+				<string>settings.json</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.revealfile</string>
+			<key>uid</key>
+			<string>8F5B8CD0-BF03-400B-AAB1-90CB4A5B069D</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string>Get tab URL and title from browser. Format a link in Markdown or add a task to OmniFocus. 
 
 Variables:
 
-- `CLEAN_AMAZON` - Default `true`
+- `CLEAN_AMAZON` - Default: `true`
   - The workflow removes tracking tokens from Amazon URLs if this variable is set to `true`.
   - To disable the feature, set the variable to `false`.
-- `UPDATE_FREQUENCY` - Default 7
+- `UPDATE_FREQUENCY` - Default: 7
   - Set once how many days the workflow should check for updates
   - Updates done through [OneUpdater](https://github.com/vitorgalvao/alfred-workflows/tree/master/OneUpdater)
-- `CUSTOM_ACTIONS` - Default unspecified.
-  - You can supply custom actions that override the default actions.
+- `CUSTOM_ACTIONS_FILE` - Default: null
+  - The name of a JSON file in the workflow data directory supplying custom actions that override the default actions. 
+- `CUSTOM_ACTIONS` - Default: null
+  - A string in JSON format supplying custom actions that override the default actions.
+  - If both `CUSTOM_ACTIONS` and `CUSTOM_ACTIONS_FILE` are defined, only the `CUSTOM_ACTIONS_FILE` will be used. 
 
 GitHub repo: https://github.com/pnlng/url-actions</string>
 	<key>uidata</key>
 	<dict>
+		<key>4E42958F-AB37-4884-A9EF-0E3612CD935F</key>
+		<dict>
+			<key>xpos</key>
+			<integer>165</integer>
+			<key>ypos</key>
+			<integer>155</integer>
+		</dict>
 		<key>5ECD3A62-C7D3-44A3-B448-9FA80977E138</key>
 		<dict>
 			<key>xpos</key>
 			<integer>210</integer>
 			<key>ypos</key>
 			<integer>220</integer>
+		</dict>
+		<key>6F397E7D-58CB-4B78-A32E-E1FFABA54B87</key>
+		<dict>
+			<key>note</key>
+			<string>Remove URL query params</string>
+			<key>xpos</key>
+			<integer>340</integer>
+			<key>ypos</key>
+			<integer>360</integer>
 		</dict>
 		<key>82CABD23-2C5E-41E8-8615-11CD3B792A8B</key>
 		<dict>
@@ -449,9 +583,9 @@ GitHub repo: https://github.com/pnlng/url-actions</string>
 		<key>8F5B8CD0-BF03-400B-AAB1-90CB4A5B069D</key>
 		<dict>
 			<key>xpos</key>
-			<integer>375</integer>
+			<integer>385</integer>
 			<key>ypos</key>
-			<integer>350</integer>
+			<integer>515</integer>
 		</dict>
 		<key>AB4EE45B-110B-45CF-8BC9-DC04F779792A</key>
 		<dict>
@@ -460,16 +594,16 @@ GitHub repo: https://github.com/pnlng/url-actions</string>
 			<key>note</key>
 			<string>OneUpdater</string>
 			<key>xpos</key>
-			<integer>390</integer>
+			<integer>370</integer>
 			<key>ypos</key>
-			<integer>40</integer>
+			<integer>15</integer>
 		</dict>
 		<key>B07191C2-BB02-42AD-89E3-0D9EB5237E38</key>
 		<dict>
 			<key>xpos</key>
-			<integer>395</integer>
+			<integer>440</integer>
 			<key>ypos</key>
-			<integer>250</integer>
+			<integer>245</integer>
 		</dict>
 		<key>C186D22C-70AF-49B1-BF8A-EDAEA23DA4A2</key>
 		<dict>
@@ -492,9 +626,16 @@ GitHub repo: https://github.com/pnlng/url-actions</string>
 			<key>note</key>
 			<string>Show workflow folder</string>
 			<key>xpos</key>
-			<integer>210</integer>
+			<integer>220</integer>
 			<key>ypos</key>
-			<integer>350</integer>
+			<integer>515</integer>
+		</dict>
+		<key>ECD1399A-7BCC-47BE-B4DD-AC5785660A84</key>
+		<dict>
+			<key>xpos</key>
+			<integer>45</integer>
+			<key>ypos</key>
+			<integer>370</integer>
 		</dict>
 	</dict>
 	<key>variables</key>
@@ -502,12 +643,10 @@ GitHub repo: https://github.com/pnlng/url-actions</string>
 		<key>CLEAN_AMAZON</key>
 		<string>true</string>
 		<key>UPDATE_FREQUENCY</key>
-		<string>7</string>
+		<string>0</string>
 	</dict>
-	<key>variablesdontexport</key>
-	<array/>
 	<key>version</key>
-	<string>1.1.4</string>
+	<string>1.1.5</string>
 	<key>webaddress</key>
 	<string>https://github.com/pnlng/alfred-url-actions</string>
 </dict>
