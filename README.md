@@ -5,7 +5,7 @@ does things with them. For example, it can
 
 - Copy link in Markdown
 - Add a task to OmniFocus Pro
-- Clean up Amazon URLs
+- Optionally remove URL query parameters
 
 The actions are also customizable. It can
 
@@ -37,6 +37,7 @@ macOS notification</p>
   - [Screenshots](#screenshots)
   - [Contents](#contents)
   - [Usage](#usage)
+    - [PopClip](#popclip)
   - [Configuration](#configuration)
     - [Variables](#variables)
     - [Custom Actions](#custom-actions)
@@ -51,7 +52,13 @@ macOS notification</p>
 
 ## Usage
 
-Select the desired URL (<kbd>⌘L</kbd> to get the URL of the current tab in a browser). Fire up the workflow's associated hotkey, which is <kbd>⇧^C</kbd> by default.
+Select the desired URL (<kbd>⌘L</kbd> to get the URL of the current tab in a browser). Fire up the workflow's associated hotkey, which is <kbd>⇧^C</kbd> by default. 
+
+- Pressing <kbd>↵</kbd> will either copy the formatted string or open the URL scheme action. 
+- Pressing <kbd>⌘↵</kbd> will remove query parameters from the URL. 
+  - Example: `https://www.alfredapp.com/?param=something` becomes `https://www.alfredapp.com/`
+
+### PopClip
 
 Alternatively, if you use [PopClip](https://pilotmoon.com/popclip/), you trigger Alfred through the PopClip extension.
 
@@ -82,9 +89,7 @@ You can supply custom actions that override the default actions in one of the fo
 1. Put a JSON file in the workflow data directory (accessible via the keyword `urlact`). Let the value of `CUSTOM_ACTIONS_FILE` be the name of the file. 
 2. Let the value of `CUSTOM_ACTIONS` be a JSON string. 
 
-For a template, see [`default_actions.json`](https://github.com/pnlng/alfred-url-actions/blob/master/default_actions.json).
-
-_Please do **not** directly edit the `default_actions.json` file in the workflow directory, as user changes will be overridden when the workflow is updated._
+For a template, see [`actions_template.json`](https://github.com/pnlng/alfred-url-actions/blob/master/actions_template.json).
 
 Example:
 

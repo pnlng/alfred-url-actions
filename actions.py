@@ -8,6 +8,35 @@ import urllib
 import json
 from workflow import Workflow
 
+DEFAULT_ACTIONS = [
+    {
+        'action_title': 'Copy as Markdown link',
+        'output': u'[{title}]({url})'
+    },
+    {
+        'action_title': 'Copy as Markdown list item',
+        'output': u'- [{title}]({url})'
+    },
+    {
+        'action_title': 'Add to OmniFocus',
+        'action_subtitle': '',
+        'output': u'omnifocus:///add?name={title}&note={url}',
+        'encode': True
+    },
+    {
+        'action_title': 'Copy Title',
+        'output': u'{title}'
+    },
+    {
+        'action_title': 'Copy URL',
+        'output': u'{url}'
+    },
+    {
+        'action_title': 'Copy HTML link',
+        'output': u'<a href="{url}">{title}</a>'
+    }
+]
+
 # Applescript stuff from Dr. Drang: https://leancrew.com/all-this/2013/03/combining-python-and-applescript/
 
 
@@ -53,12 +82,13 @@ def main(wf):
     clean_amazon = os.environ.get('CLEAN_AMAZON')
     if clean_amazon and clean_amazon.lower() == 'true':
         url = clean_url(url)
+    actions = DEFAULT_ACTIONS
     custom_actions_file = os.environ.get('CUSTOM_ACTIONS_FILE', '')
     custom_actions = os.environ.get('CUSTOM_ACTIONS', '')
     if custom_actions_file:
         custom_file_path = wf.datafile(custom_actions_file)
         if os.path.isfile(custom_file_path):
-            with open(custom_file_path, "r") as f:
+            with open(custom_file_path, 'r') as f:
                 try:
                     actions = json.load(f)
                 except ValueError:
@@ -72,10 +102,6 @@ def main(wf):
             actions = json.loads(custom_actions)
         except ValueError:
             raise ValueError('The value of "CUSTOM_ACTIONS" is malformed.')
-    else:
-        config = wf.workflowfile('default_actions.json')
-        with open(config) as f:
-            actions = json.load(f)
     for action in actions:
         # Quote title if url is to be opened
         if action.get('encode', False):
@@ -94,6 +120,6 @@ def main(wf):
     return 0
 
 
-if __name__ == u"__main__":
+if __name__ == u'__main__':
     wf = Workflow()
     sys.exit(wf.run(main))
