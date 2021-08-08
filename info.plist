@@ -169,7 +169,11 @@
 readonly remote_info_plist='https://raw.githubusercontent.com/pnlng/alfred-url-actions/master/info.plist'
 readonly workflow_url='https://github.com/pnlng/alfred-url-actions/releases/latest/download/URL.Actions.alfredworkflow'
 readonly download_type='direct'
-readonly frequency_check="$UPDATE_FREQUENCY"
+if [ "$UPDATE_FREQUENCY" = "" ]; then
+	readonly frequency_check='7'
+else
+	readonly frequency_check="$UPDATE_FREQUENCY"
+fi
 
 # FROM HERE ON, CODE SHOULD BE LEFT UNTOUCHED!
 function abort {
@@ -182,13 +186,13 @@ function url_exists {
 }
 
 function notification {
-  readonly local notificator="$(find . -type d -name 'Notificator.app')"
+  local -r notificator="$(find . -type d -name 'Notificator.app')"
   if [[ -n "${notificator}" ]]; then
     "${notificator}/Contents/Resources/Scripts/notificator" --message "${1}" --title "${alfred_workflow_name}" --subtitle 'A new version is available'
     return
   fi
 
-  readonly local terminal_notifier="$(find . -type f -name 'terminal-notifier')"
+  local -r terminal_notifier="$(find . -type f -name 'terminal-notifier')"
   if [[ -n "${terminal_notifier}" ]]; then
     "${terminal_notifier}" -title "${alfred_workflow_name}" -subtitle 'A new version is available' -message "${1}"
     return
@@ -528,7 +532,7 @@ python actions.py $query</string>
 
 Variables:
 
-- `CLEAN_AMAZON` - Default: `true`
+- `CLEAN_AMAZON` - Default: true
   - The workflow removes tracking tokens from Amazon URLs if this variable is set to `true`.
   - To disable the feature, set the variable to `false`.
 - `UPDATE_FREQUENCY` - Default: 7
@@ -645,8 +649,12 @@ GitHub repo: https://github.com/pnlng/url-actions</string>
 		<key>UPDATE_FREQUENCY</key>
 		<string>0</string>
 	</dict>
+	<key>variablesdontexport</key>
+	<array>
+		<string>UPDATE_FREQUENCY</string>
+	</array>
 	<key>version</key>
-	<string>1.1.5</string>
+	<string>1.1.6</string>
 	<key>webaddress</key>
 	<string>https://github.com/pnlng/alfred-url-actions</string>
 </dict>
