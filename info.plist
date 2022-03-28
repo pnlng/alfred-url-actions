@@ -326,7 +326,7 @@ echo -n $query</string>
 				<string></string>
 				<key>script</key>
 				<string>query=$1
-python actions.py $query</string>
+./main $query</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -454,15 +454,17 @@ python actions.py $query</string>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
-				<integer>0</integer>
+				<integer>102</integer>
 				<key>script</key>
-				<string></string>
+				<string>query=$1
+stripped_url=$(echo $raw_url | sed -e "s/\?.*//")
+echo -n $(echo $query | sed -e "s|$raw_url|$stripped_url|g")</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
-				<string>remove_query_params.py</string>
+				<string></string>
 				<key>type</key>
-				<integer>8</integer>
+				<integer>5</integer>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.script</string>
@@ -647,14 +649,14 @@ GitHub repo: https://github.com/pnlng/url-actions</string>
 		<key>CLEAN_AMAZON</key>
 		<string>true</string>
 		<key>UPDATE_FREQUENCY</key>
-		<string>0</string>
+		<string>7</string>
 	</dict>
 	<key>variablesdontexport</key>
 	<array>
 		<string>UPDATE_FREQUENCY</string>
 	</array>
 	<key>version</key>
-	<string>1.1.6</string>
+	<string>1.1.7</string>
 	<key>webaddress</key>
 	<string>https://github.com/pnlng/alfred-url-actions</string>
 </dict>
