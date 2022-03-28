@@ -1,4 +1,4 @@
-.DEFAULT_GOAL = copy
+.DEFAULT_GOAL = copy-binary
 
 FILE_NAME = main
 
@@ -16,7 +16,11 @@ popclip:
 build:
 	env GOOS=darwin GOARCH=amd64 go build "$(FILE_NAME).go"
 
-.PHONY: copy
-copy: build
+.PHONY: copy-binary
+copy-binary: build
 	cp $(FILE_NAME) ${WORKFLOW_PATH}
 	chmod a+x "${WORKFLOW_PATH}/$(FILE_NAME)"
+
+.PHONY: copy-plist
+copy-plist:
+	cp "${WORKFLOW_PATH}/info.plist" .
