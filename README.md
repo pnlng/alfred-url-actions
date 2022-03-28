@@ -167,4 +167,4 @@ This workflow is inspired by these articles and projects.
 
 This workflow is especially indebted to:
 
-- The [Alfred-Workflow](https://github.com/deanishe/alfred-workflow/) Python library by deanishe
+- The [AwGo](https://github.com/deanishe/awgo/) library by deanishe
