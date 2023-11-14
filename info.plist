@@ -546,7 +546,7 @@ Variables:
   - A string in JSON format supplying custom actions that override the default actions.
   - If both `CUSTOM_ACTIONS` and `CUSTOM_ACTIONS_FILE` are defined, only the `CUSTOM_ACTIONS_FILE` will be used. 
 
-GitHub repo: https://github.com/pnlng/url-actions</string>
+GitHub repo: https://github.com/pnlng/alfred-url-actions</string>
 	<key>uidata</key>
 	<dict>
 		<key>4E42958F-AB37-4884-A9EF-0E3612CD935F</key>
